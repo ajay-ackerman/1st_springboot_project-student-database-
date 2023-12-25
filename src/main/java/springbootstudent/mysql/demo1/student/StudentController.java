@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -44,6 +46,11 @@ public class StudentController {
     public  void  deleteStudent(@PathVariable("studentId") Long id ){
         studentServices.deleteStudent(id);
 
+    }
+
+    @PutMapping("{studentId}")
+    public void updateStudent(@PathVariable("studentId") Long id, @RequestBody Student student) {
+        studentServices.updateStudent(id,student);
     }
     
         
